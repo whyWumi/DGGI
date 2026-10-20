@@ -49,7 +49,7 @@ def construct_dataloaders(dataset, defs, data_path='~/data', shuffle=True, norma
         trainset, validset = _build_celaba(path, img_size=64)
         loss_fn = Classification()
     elif dataset == 'myimagenet':
-        trainset, validset = _build_myimagenet('E:/data/myimage/', defs.augmentations, normalize)
+        trainset, validset = _build_myimagenet(os.path.join(path, 'myimage'), defs.augmentations, normalize)
         loss_fn = Classification()
 
     if MULTITHREAD_DATAPROCESSING:

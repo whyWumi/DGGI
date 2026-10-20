@@ -1,6 +1,7 @@
 """Parser options."""
 
 import argparse
+from project_paths import DATA_DIR, MODELS_DIR, IMAGES_DIR, TABLES_DIR, PRETRAINED_CHECKPOINT
 
 def options():
     """Construct the central argument parser, filled with useful defaults."""
@@ -56,12 +57,12 @@ def options():
 
     # Files and folders:
     parser.add_argument('--save_image', default=True, action='store_true', help='Save the output to a file.')
-    parser.add_argument('--pretrained', default='E:/DDGI/models/moco_v2_800ep_pretrain.pth.tar', type=str,
+    parser.add_argument('--pretrained', default=str(PRETRAINED_CHECKPOINT), type=str,
                         help='path to pretrained model')
-    parser.add_argument('--image_path', default='images/', type=str)
-    parser.add_argument('--model_path', default='models/', type=str)
-    parser.add_argument('--table_path', default='tables/', type=str)
-    parser.add_argument('--data_path', default='E:/data/', type=str)
+    parser.add_argument('--image_path', default=str(IMAGES_DIR), type=str)
+    parser.add_argument('--model_path', default=str(MODELS_DIR), type=str)
+    parser.add_argument('--table_path', default=str(TABLES_DIR), type=str)
+    parser.add_argument('--data_path', default=str(DATA_DIR), type=str)
 
     # Debugging:
     parser.add_argument('--name', default='iv', type=str, help='Name tag for the result table and model.')

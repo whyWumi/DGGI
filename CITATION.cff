@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If this research code contributes to your work, please cite the DGGI paper."
+title: "DGGI research code"
+authors:
+  - family-names: "Wu"
+    given-names: "Liwen"
+  - family-names: "Liu"
+    given-names: "Zhizhi"
+  - family-names: "Pu"
+    given-names: "Bin"
+  - family-names: "Wei"
+    given-names: "Kang"
+  - family-names: "Cao"
+    given-names: "Hangcheng"
+  - family-names: "Yao"
+    given-names: "Shaowen"
+preferred-citation:
+  type: article
+  title: "DGGI: Deep Generative Gradient Inversion with diffusion model"
+  authors:
+    - family-names: "Wu"
+      given-names: "Liwen"
+    - family-names: "Liu"
+      given-names: "Zhizhi"
+    - family-names: "Pu"
+      given-names: "Bin"
+    - family-names: "Wei"
+      given-names: "Kang"
+    - family-names: "Cao"
+      given-names: "Hangcheng"
+    - family-names: "Yao"
+      given-names: "Shaowen"
+  journal: "Information Fusion"
+  volume: "113"
+  start: "102620"
+  year: 2025
+  doi: "10.1016/j.inffus.2024.102620"

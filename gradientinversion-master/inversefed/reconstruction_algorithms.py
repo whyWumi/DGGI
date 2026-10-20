@@ -1,5 +1,6 @@
 """Mechanisms for image reconstruction from parameter gradients."""
 import argparse
+from project_paths import DIFFUSION_CHECKPOINT, CLASSIFIER_CHECKPOINT, IMAGES_DIR
 import os
 from PIL import Image
 import cv2
@@ -57,8 +58,8 @@ def create_argparser():
         num_samples=8,
         batch_size=8,
         use_ddim=False,
-        model_path="E:/DDGI/models/256x256_diffusion.pt",
-        classifier_path="E:/DDGI/models/256x256_classifier.pt",
+        model_path=str(DIFFUSION_CHECKPOINT),
+        classifier_path=str(CLASSIFIER_CHECKPOINT),
         classifier_scale=1,  ##1.0
     )
     defaults.update(model_and_diffusion_defaults())
@@ -69,7 +70,8 @@ def create_argparser():
 
 
 def evaluate1(labels):
-    args = create_argparser().parse_args()
+    # The reconstruction CLI has already been parsed; use diffusion defaults here.
+    args = create_argparser().parse_args([])
 
     dist_util.setup_dist()
     logger.configure()
@@ -156,15 +158,15 @@ def evaluate1(labels):
         image_tensor_from_numpy2 = image_tensor_from_numpy2.float().div(255)  # 归一化到[0,1]
         images.append(image_tensor_from_numpy2)
         torchvision.utils.save_image(image_tensor_from_numpy2,
-                                     os.path.join('E:/myexpp1/invertinggradients-master/images',
+                                     os.path.join(str(IMAGES_DIR),
                                                   index[i] + f"imagenet.png"))
     images = torch.stack(images, 0)
     torchvision.utils.save_image(images,
-                                 os.path.join('E:/myexpp1/invertinggradients-master/images', f"8_imagenet.png"))
+                                 os.path.join(str(IMAGES_DIR), f"8_imagenet.png"))
     print(images.shape)
     trueimage = []
     for i in range(args.batch_size):
-        img_path = os.path.join('E:/myexpp1/invertinggradients-master/images',
+        img_path = os.path.join(str(IMAGES_DIR),
                                                   index[i] + f"imagenet.png")
         transform1 = transforms.Compose([
             transforms.CenterCrop((224, 224)),  # 只能对PIL图片进行裁剪
@@ -177,7 +179,7 @@ def evaluate1(labels):
     trueimage = torch.stack(trueimage, 0)
     print(trueimage.shape)
     torchvision.utils.save_image(trueimage,
-                                 os.path.join('E:/myexpp1/invertinggradients-master/images', f"trueb8_imagenet.png"))
+                                 os.path.join(str(IMAGES_DIR), f"trueb8_imagenet.png"))
     return trueimage.to(device)
 
 
