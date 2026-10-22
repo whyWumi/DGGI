@@ -4,11 +4,11 @@
 Liwen Wu, Zhizhi Liu, Bin Pu, Kang Wei, Hangcheng Cao, Shaowen Yao  
 *Information Fusion*, 113 (2025), 102620. Available online August 2024.
 
-[Paper](https://doi.org/10.1016/j.inffus.2024.102620) · [中文说明](README.zh-CN.md) · [Reproduction notes](docs/REPRODUCIBILITY.md)
+[Paper](https://doi.org/10.1016/j.inffus.2024.102620) · [中文说明](README.zh-CN.md) · 
 
 DGGI studies reconstruction of private training images from shared gradients using diffusion model priors and group consistency regularization.
 
-This repository is a cleaned research code snapshot. Its existing repository name is **DDGI**, while the paper's method abbreviation is **DGGI**. The supplied entry point targets ImageNet-style images. Model weights, datasets, and the full LDCT experiment pipeline were not included. End-to-end reproduction is not validated; known implementation differences, including the group-loss activation condition, are recorded in the [reproduction notes](docs/REPRODUCIBILITY.md).
+
 
 ## Layout
 
@@ -129,8 +129,3 @@ GitHub Actions checks formatting for the entry point and new utilities, Python 3
 }
 ```
 
-## Acknowledgments and licensing
-
-This snapshot includes modified components from [Inverting Gradients](https://github.com/JonasGeiping/invertinggradients) and [Guided Diffusion](https://github.com/openai/guided-diffusion), plus existing source references to NVIDIA Apex and PyTorch Examples. Their notices are retained in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-The original snapshot did not provide a project-wide license. No new license is assigned to the DGGI contributions by this cleanup.
